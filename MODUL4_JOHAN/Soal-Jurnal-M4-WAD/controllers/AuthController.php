@@ -80,6 +80,19 @@ class AuthController
     }
 
     private function getJurusan($jurusan):void {
+        $kode_jurusan=0;
+
+        if ($jurusan['jurusan']=="kedokteran"){
+            $kode_jurusan=11;
+        }else if ($jurusan['jurusan']=="psikologi"){
+            $kode_jurusan=12;
+        }else if ($jurusan['jurusan']== "biologi"){
+            $kode_jurusan=13;
+        }else if ($jurusan['jurusan']=="teknik informatika"){
+            $kode_jurusan+14;
+        }
+        return $kode_jurusan
+
         // TODO: Lengkapi fungsi untuk mendapatkan kode jurusan
         // 1. Buat variabel $kode_jurusan dengan nilai default 0
         // 2. Gunakan switch-case atau if-else untuk mengatur variabel $kode_jurusan:
@@ -92,6 +105,8 @@ class AuthController
 
     private function generateNIM($id_pendaftaran){
         $conn = $this->conn;
+
+        
         // TODO: Lengkapi fungsi untuk generate NIM dengan format: kode_jurusan + tahun_masuk + id_pendaftaran
         // 1. Buat query untuk mengambil data pendaftaran berdasarkan $id_pendaftaran dan simpan di variabel $query
         // 2. Eksekusi query menggunakan mysqli_query dan simpan di variabel $result
